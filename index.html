@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070a0e">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>NEONCORE — Join the nexus</title>
+</head>
+<body>
+  <main class="signup-layout">
+    <section class="brand-panel" aria-labelledby="page-title">
+      <a class="brand-logo" href="#" aria-label="NEONCORE home">
+        <img src="./assets/images/logo.svg" alt="NEONCORE">
+      </a>
+
+      <div class="brand-intro">
+        <h1 class="brand-title" id="page-title"><span aria-hidden="true">//</span> Join the<br class="desktop-break"> nexus</h1>
+        <p class="brand-tagline">Initialize your NEONCORE identity</p>
+      </div>
+
+      <section class="operator-readout" aria-label="Operator status">
+        <div class="operator-readout__top">
+          <span class="eyebrow">Operator ID</span>
+          <span class="readiness"><span class="readiness__count">0/5</span> ready</span>
+        </div>
+        <p class="operator-name"><span class="operator-name__label">Operator ID</span><span class="operator-name__value">Unassigned</span></p>
+        <ul class="operator-checklist" aria-label="Registration progress">
+          <li><span>Callsign</span><span class="operator-checklist__status">Pending</span></li>
+          <li><span>Email</span><span class="operator-checklist__status">Pending</span></li>
+          <li><span>Password</span><span class="operator-checklist__status">Pending</span></li>
+          <li><span>Confirm</span><span class="operator-checklist__status">Pending</span></li>
+          <li><span>Terms</span><span class="operator-checklist__status">Required</span></li>
+        </ul>
+      </section>
+    </section>
+
+    <section class="form-panel" aria-labelledby="form-title">
+      <div class="form-panel__inner">
+        <header class="form-header">
+          <h2 class="eyebrow" id="form-title">New operator</h2>
+          <span class="form-header__note"><span class="desktop-only">All fields required</span><span class="mobile-only">All required</span></span>
+        </header>
+
+        <form class="signup-form" action="#" method="post">
+          <div class="field">
+            <label class="field__label" for="callsign">Callsign</label>
+            <div class="field__input-wrap">
+              <input class="field__control" id="callsign" name="callsign" type="text" placeholder="e.g. Vortex_07" minlength="3" maxlength="20" pattern="[A-Za-z0-9_-]{3,20}" autocomplete="nickname" aria-describedby="callsign-hint callsign-error" required>
+              <img class="field__status field__status--valid" src="./assets/images/icon-tick-16.svg" alt="">
+            </div>
+            <p class="field__hint" id="callsign-hint">3–20 characters: letters, numbers, _ or -</p>
+            <p class="field__error" id="callsign-error" aria-live="polite">Enter a valid callsign (3–20 letters, numbers, _ or -).</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">Email</label>
+            <div class="field__input-wrap">
+              <input class="field__control" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-error" required>
+              <img class="field__status field__status--valid" src="./assets/images/icon-tick-16.svg" alt="">
+            </div>
+            <p class="field__error" id="email-error" aria-live="polite">Enter a valid email address.</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="password">Password</label>
+            <div class="field__input-wrap">
+              <input class="field__control field__control--password" id="password" name="password" type="password" autocomplete="new-password" aria-describedby="password-hint password-error" required minlength="8">
+              <img class="field__status field__status--valid" src="./assets/images/icon-tick-16.svg" alt="">
+              <button class="password-toggle" type="button" aria-label="Show password" aria-controls="password">
+                <img src="./assets/images/icon-eye.svg" alt="">
+              </button>
+            </div>
+            <div class="strength-meter" data-strength="empty" aria-label="Password strength">
+              <span class="strength-meter__segment"></span>
+              <span class="strength-meter__segment"></span>
+              <span class="strength-meter__segment"></span>
+              <span class="strength-meter__segment"></span>
+            </div>
+            <div class="field__meta">
+              <p class="field__hint" id="password-hint">At least 8 characters</p>
+              <span class="strength-label" aria-live="polite"></span>
+            </div>
+            <p class="field__error" id="password-error" aria-live="polite">Use at least 8 characters.</p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="confirm-password">Confirm password</label>
+            <div class="field__input-wrap">
+              <input class="field__control field__control--password" id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" aria-describedby="confirm-password-error" required>
+              <img class="field__status field__status--valid" src="./assets/images/icon-tick-16.svg" alt="">
+              <button class="password-toggle" type="button" aria-label="Show confirm password" aria-controls="confirm-password">
+                <img src="./assets/images/icon-eye.svg" alt="">
+              </button>
+            </div>
+            <p class="field__error" id="confirm-password-error" aria-live="polite">Passwords don't match.</p>
+          </div>
+
+          <div class="terms">
+            <input class="terms__checkbox" id="terms" name="terms" type="checkbox" required aria-describedby="terms-error">
+            <label class="terms__label" for="terms">I accept the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</label>
+            <p class="field__error terms__error" id="terms-error" aria-live="polite">Accept the terms to continue.</p>
+          </div>
+
+          <p class="form-announcement" role="status" aria-live="polite"></p>
+          <button class="submit-button" type="submit">
+            <span class="submit-button__default">Initialize account</span>
+            <span class="submit-button__loading">Transmitting_</span>
+          </button>
+        </form>
+
+        <p class="login-prompt">Already an operator? <a href="#">Log in</a></p>
+
+        <section class="success-view" aria-labelledby="success-title" hidden>
+          <img class="success-view__icon" src="./assets/images/icon-hex-check.svg" alt="">
+          <h2 class="success-view__title" id="success-title">Handshake complete</h2>
+          <p>Operator <span class="success-view__callsign">[callsign]</span> provisioned. Your account is ready.</p>
+          <a class="success-view__link" href="#">Continue to log in</a>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+</body>
+</html>
